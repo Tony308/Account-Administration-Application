@@ -1,23 +1,27 @@
+<!-- Has the CSS to style the content. NOT sure what to tho...
+Somehow incorporates index.js & main.js and is REQUIRED.
+Edit: The root component
+-->
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <navigation></navigation>
 </template>
 
 <script>
+import Navigation from './Navigation.vue'
 export default {
-  name: 'App'
+  name: 'app',
+  data () {
+    return {
+      Navigation,
+      msg: 'Welcome to your personal hell.!!!'
+    }
+  },
+  components: {
+    'navigation': Navigation
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

@@ -5,6 +5,7 @@
 const path = require('path')
 
 module.exports = {
+
   dev: {
 
     // Paths
@@ -16,6 +17,7 @@ module.exports = {
         target: 'http://localhost:8088',
         changeOrigin: true
       }
+
     },
 
     // Various Dev Server settings
@@ -33,7 +35,6 @@ module.exports = {
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
-
     /**
      * Source Maps
      */

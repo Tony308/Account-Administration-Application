@@ -1,6 +1,17 @@
 <template>
   <div id="nav">
-    <navigation>Hello world</navigation>
+    <ul>
+      <li id="title">Account Application</li>
+      <li><a href="#">Dashboard</a></li>
+
+      <div class="dropbtn">
+        <li class="last"><a href="#">Account</a></li>
+        <div class="dropdown-content">
+          <a href="#">Get Accounts</a>
+          <a href="#">Add Account</a>
+        </div>
+      </div>
+    </ul>
   </div>
 </template>
 
@@ -8,12 +19,6 @@
 
 export default {
   name: 'navigation',
-  methods: {
-    // addAccount() {
-    //   if () {}
-    //
-    // }
-  }
 }
 </script>
 
