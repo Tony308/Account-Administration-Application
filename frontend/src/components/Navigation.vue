@@ -16,7 +16,11 @@
 
 <script>
 export default {
-  name: 'Navigation'
+  name: 'Navigation',
+  methods: {
+    showAccounts () {
+    }
+  }
 }
 </script>
 

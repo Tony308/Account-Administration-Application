@@ -12,15 +12,10 @@ Edit: The root component
 import Homepage from './Homepage'
 import Navigation from './components/Navigation'
 export default {
-
   name: 'app',
   components: {
     'Homepage': Homepage,
     'Navigation': Navigation
-  },
-  data () {
-    return {msg: 'better fucking work shits gonna go down'
-    }
   }
 }
 </script>

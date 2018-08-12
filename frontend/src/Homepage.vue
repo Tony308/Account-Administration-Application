@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-model="http://www.w3.org/1999/xhtml">
   <div id = "homepage">
     <div class="body">
     <navigation></navigation>
@@ -6,16 +6,16 @@
         <form id="accountForm" action="" method="post">
           <h3>Add An Account</h3>
           <fieldset>
-            <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+            <input placeholder="Your first name" v-model="firstName" type="text" tabindex="1" required autofocus>
           </fieldset>
           <fieldset>
-            <input placeholder="Your Email Address" type="email" tabindex="2" required>
+            <input placeholder="Your surname" v-model="surname" type="text" tabindex="2" required>
           </fieldset>
           <fieldset>
-            <input placeholder="Account Number" type="text" tabindex="3" required>
+            <input placeholder="Account Number" v-model="accountNumber" name="accountNumberText" type="text" tabindex="3" required>
           </fieldset>
           <fieldset>
-            <button name="submit" type="submit" tabindex="4" id="contact-submit" data-submit="...Sending">Submit</button>
+            <button name="submit" v-bind:onclick="createAccount" type="submit" tabindex="4" id="submit" data-submit="...Sending">Submit</button>
           </fieldset>
         </form>
       </div>
@@ -25,10 +25,31 @@
 
 <script>
 import Navigation from './components/Navigation.vue'
+import axios from 'axios'
 export default {
   name: 'Homepage',
   components: {
     'navigation': Navigation
+  },
+  methods: {
+    getAccounts () {
+      axios.get(`localhost:8080/get`)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.response = response.data
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
+    },
+    createAccount () {
+
+    },
+    deleteAccount () {
+    },
+    updateAccount () {
+    }
+
   }
 }
 </script>
