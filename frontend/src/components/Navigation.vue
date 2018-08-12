@@ -3,7 +3,6 @@
     <ul>
       <li id="title">Account Application</li>
       <li><a href="#">Dashboard</a></li>
-
       <div class="dropbtn">
         <li class="last"><a href="#">Account</a></li>
         <div class="dropdown-content">
@@ -16,13 +15,16 @@
 </template>
 
 <script>
-
 export default {
-  name: 'navigation',
+  name: 'Navigation'
 }
 </script>
 
 <style scoped>
+
+  .body form {
+    margin:30px;
+  }
   /* Dropdown button */
   #nav ul .dropbtn {
     font-size: 16px;
@@ -84,14 +86,16 @@ export default {
     -o-transition: color .25s;
     transition: color .25s;
   }
+
   #nav {
     background: #0a1c3a;
-    width: auto;
+    width: 100%;
+    text-align:center;
   }
   #nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    clear:both;
+    margin:auto;
     line-height: 1;
     display: block;
     zoom: 1;
@@ -186,5 +190,4 @@ export default {
   #nav.align-right li:first-child a:after {
     display: none;
   }
-
 </style>

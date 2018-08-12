@@ -54,7 +54,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
 		<dependency>
 			<groupId>commons-httpclient</groupId>

@@ -1,10 +1,13 @@
 package com.qa.backend.data.entity;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="ACCOUNTS")
-public class Account {
+public class Account implements Serializable {
 
     @Id
     @Column(name="ID")
@@ -15,9 +18,17 @@ public class Account {
     @Column(name="SURNAME")
     private String surname;
     @Column(name="ACCOUNT_NUMBER")
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private String accountNumber;
 
+    public Account(String firstname, String surname, String accountNumber) {
+        this.firstname = firstname;
+        this.surname = surname;
+        this.accountNumber = accountNumber;
+    }
+
+    protected Account() {
+
+    }
     public long getId() {
         return id;
     }
@@ -48,5 +59,15 @@ public class Account {
 
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", surname='" + surname + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                '}';
     }
 }

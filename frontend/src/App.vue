@@ -2,26 +2,28 @@
 Somehow incorporates index.js & main.js and is REQUIRED.
 Edit: The root component
 -->
+
 <template>
-  <navigation></navigation>
+<Homepage>
+</Homepage>
 </template>
 
 <script>
-import Navigation from './Navigation.vue'
+import Homepage from './Homepage'
+import Navigation from './components/Navigation'
 export default {
+
   name: 'app',
-  data () {
-    return {
-      Navigation,
-      msg: 'Welcome to your personal hell.!!!'
-    }
-  },
   components: {
-    'navigation': Navigation
+    'Homepage': Homepage,
+    'Navigation': Navigation
+  },
+  data () {
+    return {msg: 'better fucking work shits gonna go down'
+    }
   }
 }
 </script>
 
 <style>
-
 </style>
