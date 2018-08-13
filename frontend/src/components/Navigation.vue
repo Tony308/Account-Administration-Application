@@ -2,28 +2,28 @@
   <div id="nav">
     <ul>
       <li id="title">Account Application</li>
-      <li><a href="#">Dashboard</a></li>
+      <li><router-link to="/dashboard" replace> Dashboard</router-link></li>
       <div class="dropbtn">
         <li class="last"><a href="#">Account</a></li>
         <div class="dropdown-content">
-          <a href="#">Get Accounts</a>
-          <a href="#">Add Account</a>
+          <router-link to="/get-accounts" replace>            Show All Accounts          </router-link>
+          <router-link to="/add-account" replace>Add Account</router-link>
         </div>
       </div>
     </ul>
+
   </div>
 </template>
-
 <script>
 export default {
   name: 'Navigation',
   methods: {
-    showAccounts () {
+    goToAccounts () {
+
     }
   }
 }
 </script>
-
 <style scoped>
 
   .body form {
