@@ -1,12 +1,12 @@
 <template>
   <div id="nav">
     <ul>
-      <li id="title">Account Application</li>
+      <li id="title">Account Application </li>
       <li><router-link to="/dashboard" replace> Dashboard</router-link></li>
       <div class="dropbtn">
         <li class="last"><a href="#">Account</a></li>
         <div class="dropdown-content">
-          <router-link to="/get-accounts" replace>            Show All Accounts          </router-link>
+        <router-link to="/get-accounts" replace>   Show All Accounts    </router-link>
           <router-link to="/add-account" replace>Add Account</router-link>
         </div>
       </div>
@@ -19,7 +19,6 @@ export default {
   name: 'Navigation',
   methods: {
     goToAccounts () {
-
     }
   }
 }
@@ -39,7 +38,7 @@ export default {
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
   }
-  /* Dropdown content (hidden by default) */
+  /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
     display: none;
     position: absolute;
@@ -65,7 +64,7 @@ export default {
   }
 
   /* Show the dropdown menu on hover */
-  .dropdown-content {
+  .dropbtn:hover .dropdown-content{
     display: block;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;

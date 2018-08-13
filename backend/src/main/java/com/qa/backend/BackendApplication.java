@@ -40,9 +40,10 @@ public class BackendApplication implements CommandLineRunner {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/").allowedOrigins("http://localhost:8081");
-				registry.addMapping("/get").allowedOrigins("http://localhost:8081");
-				registry.addMapping("/post").allowedOrigins("http://localhost:8081");
+			registry.addMapping("/").allowedOrigins("http://localhost:8081");
+			registry.addMapping("/get").allowedOrigins("http://localhost:8081");
+			registry.addMapping("/post").allowedOrigins("http://localhost:8081");
+			registry.addMapping("/{id}").allowedOrigins("http://localhost:8081");
 			}
 		};
 	}

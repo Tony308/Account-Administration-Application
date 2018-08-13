@@ -7,64 +7,71 @@
             <th><a> First Name</a></th> <th><a> Surname</a></th> <th><a>Account Number</a></th><th><a>Edit</a></th><th><a>Delete</a></th>
           </tr>
         </thead>
-        <tr>
-          <td></td> <td></td> <td></td>   <td><button>Edit</button></td> <td><button>Delete</button></td>
-        </tr>
-        <tr>
-          <td></td>
+        <tr v-for="item in tuples" v-on:key="id-rows">
+          <td> {{item.firstname}}</td>
+          <td> {{item.surname}}</td>
+          <td> {{item.accountNumber}} </td>
+          <td> <button v-on:click="updateAccount(item.id)">Edit</button></td>
+        <td><button v-on:click="deleteAccount(item.id)">Delete</button></td>
         </tr>
       </table>
-
-      <ul id = 'example'>
-        <!--<li v-for="item in response.data">-->
-          <!--{{item.}}-->
-        <!--</li>-->
-      </ul>
     </div>
 </template>
 <script>
-
 import axios from 'axios'
 import accounts from './Accounts.vue'
 import Navigation from './Navigation'
+import form from './AddAccountForm'
+
 export default {
   name: 'accounts',
-  components: {Navigation},
-  component: {
-    'accounts': accounts
+  data () {
+    return {
+      url: 'http://www.localhost:8080/',
+      tuples: [],
+      firstName: '',
+      Surname: '',
+      accNumber: ''
+    }
+  },
+  components: {
+    'accounts': accounts,
+    'account_form': form,
+    'Navigation': Navigation
+  },
+  mounted: function () {
+    this.getAccounts()
   },
   methods: {
     getAccounts () {
+      console.log('Hello world')
       axios.get('http://www.localhost:8080/get')
         .then(response => {
           // JSON responses are automatically parsed.
-          this.response = response.data
+          this.tuples = response.data
           console.log(response.data)
         })
         .catch(e => {
           this.errors.push(e)
         })
-      let data = this.response.data
-      return data
     },
-    deleteAccount () {
-    },
-    updateAccount () {
-    },
-    created () {
-      axios.get(`http://jsonplaceholder.typicode.com/posts`)
+    deleteAccount (id) {
+      axios.delete('http://www.localhost:8081/' + id)
         .then(response => {
-          // JSON responses are automatically parsed.
-          this.posts = response.data
-          console.log(this.posts)
-        })
-        .catch(e => {
-          this.errors.push(e)
+          this.response = response.data
+          console.log(response.data)
         })
     },
-    mounted: function () {
-      this.getAccounts()
-      this.created()
+    updateAccount (id) {
+      axios.put(this.url + id, {
+        firstname: this.firstName,
+        surname: this.Surname,
+        accountNumber: this.accNumber
+      })
+        .then(response => {
+          this.response = response.data
+          console.log(response.data)
+        })
     }
   }
 }

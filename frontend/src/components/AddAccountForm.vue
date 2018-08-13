@@ -4,16 +4,16 @@
       <form id="accountForm" action="" method="post">
         <h3>Add An Account</h3>
         <fieldset>
-          <input placeholder="Your first name"  type="text" tabindex="1" required autofocus>
+          <input placeholder="Your first name"  type="text" tabindex="1" required autofocus v-model="firstName">
         </fieldset>
         <fieldset>
-          <input placeholder="Your surname" type="text" tabindex="2" required>
+          <input placeholder="Your surname"  type="text" tabindex="2" required v-model="Surname">
         </fieldset>
         <fieldset>
-          <input placeholder="Account Number" name="accountNumberText" type="text" tabindex="3" required>
+          <input placeholder="Account Number" name="accountNumberText" type="text" tabindex="3" required v-model="accNumber">
         </fieldset>
         <fieldset>
-          <button name="submit" type="submit" tabindex="4" id="submit" data-submit="...Sending">Submit</button>
+          <button name="submit" type="submit" tabindex="4" id="submit" v-on:click="createAccount">Submit</button>
         </fieldset>
       </form>
     </div>
@@ -21,8 +21,34 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'AddAccountForm'
+  name: 'AddAccountForm',
+  data () {
+    return {
+      id: 0,
+      firstName: '',
+      Surname: '',
+      accNumber: '',
+      url: 'http://www.localhost:8080/'
+    }
+  },
+  methods: {
+    createAccount () {
+      axios.post('localhost:8080/post', {
+        firstname: this.firstName,
+        surname: this.Surname,
+        accountNumber: this.accNumber
+      })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      this.getAccounts()
+    }
+  }
 }
 </script>
 

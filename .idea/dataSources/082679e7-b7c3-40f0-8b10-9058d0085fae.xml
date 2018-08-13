@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="Accounts">
+<dataSource name="AccountsDB">
   <database-model serializer="dbm" rdbms="H2" format-version="4.4">
     <root id="1"/>
-    <database id="2" parent="1" name="ACCOUNTSDB">
+    <database id="2" parent="1" name="ACCOUNTS">
       <Current>1</Current>
       <Visible>1</Visible>
     </database>

@@ -2,7 +2,6 @@
   <div id = "homepage">
     <router-view/>
     <Navigation></Navigation>
-    <account-form/>
   </div>
 </template>
 
